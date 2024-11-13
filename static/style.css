@@ -1,0 +1,118 @@
+/* Stilizare pentru carduri */
+/* Stilizare pentru carduri */
+.card {
+  width: 325px;
+  height: 500px;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* Centrează conținutul pe verticală */
+  align-items: center;      /* Centrează conținutul pe orizontală */
+  padding: 20px;            /* Adaugă spațiu între conținut și marginea cardului */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover pe card */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Stilizare pentru imagini */
+.card-img-top {
+  object-fit: cover;
+  width: 230px;
+  height: 230px;
+  border-bottom: 30px solid #ccc;
+  background-origin: padding-box;
+  transition: transform 0.3s;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* Stilizare pentru titlurile produselor */
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+
+/* Stilizare pentru buton */
+.btn_whatsapp {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #25d366;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn_whatsapp:hover {
+  background-color: #1da851;
+  transform: scale(1.1);
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "   ";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
