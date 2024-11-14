@@ -1,14 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 class="text-center my-4">Produse</h1>
-    
+    <!-- <h1 class="text-center my-4">Produse</h1> -->
+    <header class="header">
+        <div class="header_content">
+        <img src="https://seniledecauciuc.ro/assets/images/radiali-logo.png" class="logo">
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Products</a>
+            <a href="#">Dealers</a>
+            <a href="#">Contact</a>
+        </nav>
+        </div>
+    </header>
+    <br></br><br></br>
     <div class="container">
         <!-- Row care ajustează automat numărul de coloane în funcție de lățimea ecranului -->
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             {% for product in products %}
                 <div class="col">
-                    <div class="card shadow-sm h-100">
+                    <div class="card ">
                         <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}">
                         <div class="card-body d-flex flex-column text-center">
                             <h5 class="card-title">{{ product.name }}</h5>
