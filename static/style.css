@@ -146,6 +146,7 @@ body{
   text-decoration: none;
   margin-left: 40px;
   background-color: #110450;
+  font-family: "Arial", sans-serif;
 }
 
 .navbar a::before{
@@ -170,5 +171,486 @@ body{
   left: -20px; /* mută imaginea mai la stânga */
   box-shadow: 10px 5px 5px rgb(255, 238, 0);
 }
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.containerHome {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.5em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.web-catalog {
+  display: block;
+  margin-top: 40px;
+  text-decoration: none;
+  color: #be2cab;
+  font-size: 1.2em;
+}
+
+
+/*Pagian pt login*/
+.loginContainer{
+  width:750px;
+  position: relative;
+  height: 450px;
+  border-radius: 10px;
+  /* border: 2px solid rgb(255, 238, 0); */
+  margin:0;
+  padding: 0;
+  overflow:hidden;
+  box-sizing: border-box;
+  background-color: #110450;
+  font-family: 'poppins', sans-serif 
+  
+  
+}
+
+
+loginBody{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: rgb(255, 238, 0);
+}
+
+
+.form-box-Login {
+  position: absolute;
+  top: 0;
+  left: 0; 
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 60px;
+}
+
+.form-box-Login .animation{
+  transform: translateX(0%);
+  transition: .7s;
+  opacity: 1;
+  transition-delay: calc(.1s * var(--S));  
+}  
+
+
+
+.loginContainer.active .form-box-Login .animation{
+  transform: translateX(-125%);
+  opacity: 0;
+  transition-delay: calc(.1s * var(--D));
+}
+
+
+.form-box-Register {
+  /* display:none!important;  */
+  position: absolute;
+  top: 0;
+  right: 0; /* Register pe dreapta */
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 60px;
+}
+
+.form-box-Register .animation{
+  transform: translateX(125%);
+  transition: .7s ease;
+  opacity: 0;
+  transition-delay: calc(.1s * var(--S));
+  filter: blur(10px);
+  
+}
+
+.loginContainer.active .form-box-Register .animation{
+  transform: translateX(0%);
+  opacity: 1;
+  transition-delay: calc(.1s * var(--li));
+  filter: blur(0);
+}
+
+
+
+.h2Login{
+  font-size: 32px;
+  text-align: center;
+  left:10px;
+  padding: 0 40px;
+}
+
+.input-box-Login{
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin-top:25px;
+}
+
+.inputLogin{
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline:none;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 600;
+  border-bottom: 2px solid #fff;
+  padding-left:10px;
+  padding-right: 23px;
+}
+
+.loginLabel {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.inputLogin:focus ~ .loginLabel,
+.inputLogin:valid ~ .loginLabel {
+  top: -10px;
+  font-size: 14px;
+  color: #ffec00;
+}
+
+.passUsericon{
+  position: absolute;
+  top:50%;
+  right:0;
+  font-size: 18px;
+  transform: translateY(-50%);
+  color: #ffffff;
+}
+
+.inputLogin:focus ~ .passUsericon,
+.inputLogin:valid ~ .passUsericon {
+  color: #ffec00;
+}
+
+.form-box-Login .submitButton {
+  margin-top: 10px;
+  position: relative;
+  width: 100%;
+  height: 45px;
+  background: linear-gradient(#fff, #ffec00, #ffec00, #fff);
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid #110450;
+  overflow: hidden; 
+  color: #110450;
+}
+
+.form-box-Login .submitButton::before {
+  content: "";
+  position: absolute;
+  height: 300%;
+  width: 100%;
+  background: linear-gradient(#fff, #ffec00, #ffec00, #fff, #110450);
+  top: -100%; /* Ascuns inițial deasupra butonului */
+  left: 0;
+  z-index: -1; /* Asigură-te că gradientul este în spate */
+  transition: top 0.5s; /* Adaugă o tranziție lină pentru efect */
+}
+
+.form-box-Login .submitButton:hover {
+  top: 0; /* Gradientul coboară și devine vizibil */
+  transform: scale(1);
+}
+
+.form-box-Register .submitButton {
+  position: relative;
+  width: 100%;
+  height: 45px;
+  background: linear-gradient(#fff, #ffec00, #ffec00, #fff);
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid #110450;
+  overflow: hidden; 
+  color: #110450;
+}
+
+.form-box-Register .submitButton::before {
+  content: "";
+  position: absolute;
+  height: 300%;
+  width: 100%;
+  background: linear-gradient(#fff, #ffec00, #ffec00, #fff, #110450);
+  top: -100%; /* Ascuns inițial deasupra butonului */
+  left: 0;
+  z-index: -1; /* Asigură-te că gradientul este în spate */
+  transition: top 0.5s; /* Adaugă o tranziție lină pentru efect */
+}
+
+.form-box-Register .submitButton:hover {
+  top: 0; /* Gradientul coboară și devine vizibil */
+  transform: scale(1);
+}
+
+.registerlinkChangeSide{
+  font-size: 15px;
+  text-align:center;
+  margin: 20px 0 10px;
+}
+
+.registerlinkChangeSide a{
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font: normal;
+}
+
+.registerlinkChangeSide a:hover{
+  text-decoration: underline;
+}
+
+.forgot{
+  font-size: 13px;
+  padding-left: 54%;
+  color:rgb(255, 255, 255);
+}
+
+.forgot:hover{
+  color:#ffec00
+}
+
+.loginContainer .closeBtn {
+  position: absolute; /* Ensures it's positioned relative to the container */
+  top: 10px; /* Adjusts vertical position */
+  right: 10px; /* Adjusts horizontal position */
+  cursor: pointer;
+  font-size: 35px;
+  font-weight: 600;
+  color: #ffffff;
+  z-index: 1;
+}
+
+.loginContainer .closeBtn:hover {
+  color: rgb(255,0,0);
+}
+
+.loginContainer.act{
+  top: 50%;
+  opacity: 1;
+  transform: translate(-50%,-50%) scale(1);
+
+}
+
+
+
+
+
+
+.SignUpLink{
+  font-size: 15px;
+  text-align:center;
+  margin: 20px 0 10px;
+}
+
+.SignUpLink a{
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font: normal;
+}
+
+.SignUpLink a:hover{
+  text-decoration: underline;
+}
+
+
+/* .SignUpLink{
+  text-decoration: none;
+  color:#fff;
+  font-size: 16px;
+}
+
+.SignUpLink:hover{
+  text-decoration: underline;
+
+} */
+
+.LoginPageInfoContent{
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width:50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  right:0;
+  text-align: right;
+  padding: 0 40px 180px 100px;
+  
+  
+}
+.LoginPageInfoContent .animation{
+  transform: translateX(0);
+  transition: .7s ease;
+  transition-delay: calc(.1s*var(--S));
+  opacity: 1;
+  filter: blur(0);
+}
+
+.loginContainer.active .LoginPageInfoContent .animation{
+  /* transform: translateX(125%); */
+  transform: translateY(20%);
+  opacity: 0;
+  filter: blur(10px);
+  transition-delay: calc(.1s * var(--D));
+}
+
+
+.RegisterPageInfoContent{  
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width:50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  left:-60px;
+  text-align: right;
+  padding: 0 40px 180px 100px;
+  pointer-events: none;
+  
+}
+
+.RegisterPageInfoContent .animation{
+  transform: translateX(-120%);
+  transition: .7s ease;
+  transition-delay: calc(.1s * var(--S)); 
+  opacity: 0;
+  filter: blur(10px);
+  /* transition-delay: calc(.1s*var(--D)); */
+}
+
+.loginContainer.active .RegisterPageInfoContent .animation{
+  transform: translateX(0%);
+  opacity: 1;
+  filter: blur(0);
+  transition-delay: calc(.1s*var(--li));
+}
+
+.LoginPageInfoContent .logoFirstPage{
+  transform: scale(1.1) !important;
+}
+
+.LoginPageInfoContent .MottoFirstPage{
+  transform: translateY(40px);
+  font-size: 20px;
+  font-family:'Dancing Script';
+  color: #ffffff
+  
+}
+
+.RegisterPageInfoContent .logoFirstPage{
+  transform: scale(1.1) !important;
+  
+  
+}
+
+.RegisterPageInfoContent .MottoFirstPage{
+  transform: translateY(40px);
+  font-size: 20px;
+  margin-top: 35px;
+  font-family:'Dancing Script';
+  color: #ffffff;
+  text-align: left;
+  
+}
+
+
+.curvedShape{
+  position: absolute;
+  right:0;
+  top: -5px;
+  height: 600px;
+  width:850px;
+  background: linear-gradient(45deg,#110450,#ffffff);
+ 
+  transform: rotate(8deg) skewY(46deg);
+
+  transform-origin: bottom right;
+  transition:1.5s ease;
+  transition-delay: 1.6s;
+  
+}
+
+.loginContainer.active .curvedShape{
+   transform: rotate(0deg) skewY(0deg);
+   transition-delay: .5s;
+}
+
+.curvedShape2{
+  position: absolute;
+  left: 250px;
+  top: 100%;
+  height: 700px;
+  width:850px;
+  background: #110450;;
+  border-top: 3px solid #9592d3;
+  transform: rotate(0deg) skewY(0deg);
+  transform-origin: bottom left;
+  transition: 1.5s ease;
+  transition-delay: .5s;
+}
+
+.loginContainer.active .curvedShape2{
+  transform: rotate(-13deg) skewY(-42deg);
+  transition-delay: 1.2s;
+} 
+
 
 

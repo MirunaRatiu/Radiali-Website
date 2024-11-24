@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',#img/css
     'django.contrib.sessions',
     'productManagement.apps.ProductmanagementConfig',
+    'Home',
+    'loginManagement',
 ]
 
 MIDDLEWARE = [
