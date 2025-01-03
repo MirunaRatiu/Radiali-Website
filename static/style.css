@@ -1,5 +1,4 @@
-/* Stilizare pentru carduri */
-/* Stilizare pentru carduri */
+/* Stilizare pentru carduri /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 .card {
   width: 325px;
   height: 500px;
@@ -172,9 +171,17 @@ body{
   box-shadow: 10px 5px 5px rgb(255, 238, 0);
 }
 
+
+/*Home////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 body {
   font-family: Arial, sans-serif;
+  
 }
+
+
+
+
+
 
 .containerHome {
   width: 90%;
@@ -185,30 +192,127 @@ body {
 h1 {
   margin-bottom: 40px;
 }
+/* Stilizarea grid-ului */
+/* Stilizarea grid-ului */
 
+
+/* Stil pentru fiecare grid-item (produs) */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr); /* 3 coloane pe ecrane mari */
+  gap: 30px; /* Spațiu între elemente */
+  margin-top: 30px;
 }
 
+/* Stil pentru fiecare grid-item (produs) */
 .grid-item {
   position: relative;
-  overflow: hidden;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  transition: transform 0.3s ease-in-out;
+  border: 4px solid #000000; /* Linie de border gri */
+  padding: 30px; /* Spațiu interior pentru a face elementul mai mic */
+  text-align: center;
+  border-radius: 8px; /* Margini rotunjite */
+  background-color: rgba(255, 255, 255, 0.2); /* Fundal alb cu transparență */
+  
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Tranziție pentru efectul de hover */
+  width: 100%; /* Lățimea elementului 100% din containerul său */
+  height: 350px; /* Setăm înălțimea pentru a crea un aspect dreptunghiular */
+  max-width: 450px; /* Lățimea maximă pentru a nu depăși 300px */
+  margin: 0 auto; /* Aliniem elementul pe orizontală */
+  display: flex; /* Folosim flex pentru a centra conținutul */
+  flex-direction: column; /* Aliniem conținutul vertical */
+  justify-content: center; /* Centram conținutul pe verticală */
+
+  /* Umbră doar în spate */
+  box-shadow: 0px 10px 20px rgba(190, 101, 63, 0.5); /* Umbră exterioară spre partea de jos */
 }
+
+/* Efectul de hover pentru un efect de ridicare */
+.grid-item:hover {
+  transform: translateY(-5px); /* Ridică elementul la hover */
+  box-shadow: 0 6px 15px rgba(190, 101, 63, 0.5); /* Umbră mai puternică la hover */
+}
+
+
+/* Media query pentru ecrane mici, 2 coloane */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 coloane pe ecrane mai mici */
+  }
+
+  .grid-item {
+    width: 100%; /* Mărim elementul pe ecrane mai mici */
+    max-width: 250px; /* Lățimea maximă mai mică */
+    height: 180px; /* Micșorăm înălțimea pentru ecrane mai mici */
+  }
+}
+
+/* Media query pentru ecrane foarte mici, 1 coloană */
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr; /* 1 coloană pe ecrane foarte mici */
+  }
+
+  .grid-item {
+    width: 100%; /* Elementele vor ocupa 100% din lățimea containerului */
+    max-width: 220px; /* Lățimea maximă mai mică */
+    height: 160px; /* Înălțimea se micșorează și mai mult pe ecrane mici */
+  }
+}
+
+
+
+
+.grid-item-name {
+  position: absolute; /* Poziționare raportată la părintele .grid-item */
+  bottom: 14px; /* Poziționare față de marginea de jos */
+  left: 0; /* Banda începe de la marginea stângă */
+  width: 70%; /* Banda ocupă 70% din lățimea părintelui */
+  font-size: 24px; /* Text puțin mai mare pentru lizibilitate */
+  color: #fff;
+  font-family: "Conv_rawline-500";
+  padding: 8px 10px; /* Spațiu interior pentru o bandă mai groasă */
+  text-align: center; /* Text centrat în banda neagră */
+  background: rgba(0, 0, 0, 0.7); /* Fundal transparent cu tentă de negru */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Chenar transparent */
+  
+  /* Umbre interioare negre */
+  box-shadow: 
+    inset 0px 2px 4px rgba(0, 0, 0, 0.2), /* Umbra interioară verticală */
+    inset 0px -2px 4px rgba(0, 0, 0, 0.8); /* Umbra interioară de jos */
+  
+  z-index: 2;
+  opacity: 0.9; /* Transparență implicită */
+  transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease; /* Tranziții line */
+}
+
+
+
+.grid-item:hover .grid-item-name {
+  transform: translateX(20%); /* Se ridică ușor pe hover */
+  color: #ffcc00; /* Schimbă culoarea textului */
+  opacity: 1; /* Devine complet opac */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4); /* Crește intensitatea umbrei */
+}
+
 
 .grid-item img {
-  width: 100%;
-  height: auto;
-  display: block;
+  
+  width: 80%; /* Imaginea ocupă 90% din dimensiunea containerului */
+  height: 80%; /* Imaginea ocupă 90% din dimensiunea containerului */
+  object-fit: contain; /* Asigură că întreaga imagine este vizibilă */
+  object-position: center; /* Centrează imaginea în container */
+  display: block; /* Elimină problemele de spacing */
+  margin: auto; /* Centrează imaginea vertical și orizontal */
+  margin-top: 10px;
+  transform: scale(1); /* Default scale */
+  transition: transform 0.6s ease; /* Smooth scaling transition */
 }
 
-.grid-item:hover {
-  transform: scale(1.05);
+.grid-item:hover img {
+  transform: scale(1.20); /* Scale image slightly larger on hover */
 }
+
+
 
 .overlay {
   position: absolute;
@@ -228,8 +332,46 @@ h1 {
   font-size: 1.2em;
 }
 
+.homePicture {
+  width: 100%; /* Ocupă întreaga lățime a paginii */
+  height: 100vh; /* Ocupă întreaga înălțime a paginii (viewport height) */
+  object-fit: cover; /* Asigură că imaginea va acoperi întreaga zonă fără a se deforma */
+}
 
-/*Pagian pt login*/
+
+.textOverlay {
+  position: absolute;
+  top: 50%; /* Centrează vertical */
+  left: 50%; /* Centrează orizontal */
+  transform: translate(-50%, -50%); /* Corectează poziția pentru centru */
+  text-align: center; /* Aliniază textul */
+  z-index: 2; /* Deasupra imaginii */
+}
+
+/* Titlul */
+.title {
+  font-size: 100px; /* Dimensiunea textului */
+  font-weight: bold;
+  color: rgb(231, 209, 11);
+  -webkit-text-stroke: 2px white; /* Contur alb */
+  text-transform: uppercase;
+  text-shadow: 1px 1px 20px rgba(0, 0, 0, 1.0);
+  margin: 0;
+}
+
+/* Motto-ul */
+.homeContainer .mottoHome {
+  font-size: 38px;
+  font-family:'Dancing Script';
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 10.0); /* Umbră pentru contrast */
+  margin-top: 20px; /* Spațiu sub titlu */
+  
+}
+
+
+
+/*Pagian pt login/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 .loginContainer{
   width:750px;
   position: relative;
@@ -652,5 +794,10 @@ loginBody{
   transition-delay: 1.2s;
 } 
 
-
+.HomeImage {
+  position: relative; /* Sau absolute, dacă este poziționată în raport cu un părinte */
+  left: -600px; /* Mută imaginea cu 200px mai la stânga */
+  transform: translateY(-410px) scale(0.5);
+  
+}
 

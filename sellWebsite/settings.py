@@ -57,8 +57,8 @@ ROOT_URLCONF = 'sellWebsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [BASE_DIR / 'templates'],  # sau doar 'BASE_DIR' dacă template-urile se află aici
+        'APP_DIRS': True,  # Permite căutarea în folderul 'templates' din aplicații
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -69,6 +69,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'sellWebsite.wsgi.application'
 

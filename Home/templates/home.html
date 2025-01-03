@@ -1,100 +1,125 @@
-{% extends 'base.html' %}
-{% include 'loginManagement/templates/login.html' %}
-
+{% extends 'baseHome.html' %}
 {% block content %}
-    <!-- <h1 class="text-center my-4">Produse</h1> -->
-    <header class="header">
-        <div class="header_content">
+
+<header class="header">
+    <div class="header_content">
         <img src="https://seniledecauciuc.ro/assets/images/radiali-logo.png" class="logo">
         <nav class="navbar">
             <a href="/Home/home" class="acasa">Home</a>
             <a href="" id="reg">Inregistreaza-te</a>
             <a href="/loginManagement/login" class="log">Intra in cont</a>
-             <a href="#despre-noi">Despre</a>
+            <a href="#despre-noi">Despre</a>
             <a href="/productManagement/products">Produse</a>
             <a href="#">Dealeri</a>
             <a href="#">Contact</a>
         </nav>
-        </div>
-    </header>
-   
-     <img src="https://static.bizoo.eu/skins/assets/img/hd/t38.jpg" class="d-block w-100" alt="...">
-    <br><br>
-    <!-- <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Our Products</title>
-        
-    </head> -->
-    <!-- <body> -->
+    </div>
+</header>
 
-        <div class="containerHome">
-            <h1>Produsele noastre</h1>
-            <div class="grid">
-                <div class="grid-item">
-                    <img src="https://via.placeholder.com/300x200" alt="Generator">
-                    <div class="overlay">Generator</div>
-                </div>
-                <div class="grid-item">
-                    <img src="https://via.placeholder.com/300x200" alt="Mai Compactor">
-                    <div class="overlay">Mai Compactor</div>
-                </div>
-                <div class="grid-item">
-                    <img src="https://via.placeholder.com/300x200" alt="Placi Compactoare">
-                    <div class="overlay">Placi Compactoare</div>
-                </div>
-                <div class="grid-item">
-                    <img src="https://via.placeholder.com/300x200" alt="Taietor Beton">
-                    <div class="overlay">Taietor Beton</div>
-                </div>
-                <div class="grid-item">
-                    <img src="https://via.placeholder.com/300x200" alt="Motoare Honda">
-                    <div class="overlay">Motoare Honda</div>
-                </div>
-                <div class="grid-item">
-                    <img src="https://via.placeholder.com/300x200" alt="Motopompe de apa">
-                    <div class="overlay">Motopompe de apa</div>
-                </div>
-                <div class="grid-item">
-                    <img src="https://via.placeholder.com/300x200" alt="Ciocane Hidraulice">
-                    <div class="overlay">Ciocane Hidraulice</div>
-                </div>
-                <div class="grid-item">
-                    <img src="https://via.placeholder.com/300x200" alt="Piese Miniexcavator">
-                    <div class="overlay">Piese Miniexcavator</div>
-                </div>
-                <div class="grid-item">
-                    <img src="https://via.placeholder.com/300x200" alt="Cilindru Compactor">
-                    <div class="overlay">Cilindru Compactor</div>
-                </div>
+<div class="containerHome">
+    <h1>Produsele noastre</h1>
+    <!-- Grid cu denumiri generate din categorii -->
+    <div class="grid" id="categoryGrid">
+        {% for categorie in categorii %}
+            <div class="grid-item">
+                <img src="{{ categorie.poza }}" alt="{{ categorie.denumire }}" class="categorie-img">
+                <h3>{{ categorie.denumire }}</h3>
+                <a href="{{ categorie.linkPaginaProduse }}" class="categorie-link">Vezi Produse</a>
             </div>
-            <br><br>
+        {% endfor %}
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <!-- Logo și motto -->
+        <div class="footer-column">
+            <img src="https://seniledecauciuc.ro/assets/images/radiali-logo.png" alt="Radiali Logo" class="footer-logo">
+            <p class="motto">PIESE DE SCHIMB CARE FAC UTILAJELE SĂ RADIEZE DE FERICIRE...</p>
         </div>
 
-        <section id="despre-noi" style="background-color: #f0f0dc; padding: 50px 0;">
-            <div class="container">
-                <h2 class="text-center" style="margin-bottom: 30px;">Despre Noi</h2>
-                <div class="about-text">
-                    <p>
-                        Radiali srl are o mare varietate de șenile de cauciuc pentru mini excavatoare și mini încărcătoare, șenile de cauciuc din material de înaltă calitate.
-                    </p>
-                    <p>
-                        Senilele livrate beneficiaza de 1 an garanție, contra oricarui defect de fabricație. Senilele noastre din cauciuc, sunt fabricate cu cele mai moderne tehnologii și supuse celor mai stricte proceduri de control.
-                    </p>
-                    <p>
-                        Oferă o durată de viață mai lungă, transmit mai puține vibrații și mai puțin zgomot la rulare. Au amestecul potrivit de cauciuc, pentru o uzura redusa in timp si durata lunga de exploatare. Senilele contin cablurile de oțel, fir continuu, fără îmbinări pe ambele părți ale șenilelor de cauciuc!
-                    </p>
-                    <p>
-                        Diverse profile si modele, în funcție de aplicație. Mărimi disponibile de la 150 mm la 900 mm lățimi.
-                    </p>
-                    <p>
-                        Pentru mai multe detalii despre instalarea și utilizarea senilelor de cauciuc, nu ezitati sa ne contactati. Vă vor oferi informațiile utile, în ceea ce privește modul de întindere a senilei si reguli de exploatare, pentru a reduce uzura prematura.
-                    </p>
-                </div>
-            </div>
-        </section>                
-    
-    <!-- </body> -->
-   
+        <!-- Informații de contact -->
+        <div class="footer-column contact-column">
+            <h4>Contact</h4>
+            <p><i class="fas fa-map-marker-alt"></i> Str. Exemplu Nr. 1, 12345, Oradea</p>
+            <p><i class="fas fa-phone"></i> +40 123 456 789</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:info@radiali.ro">info@radiali.ro</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>Radiali SRL © Toate drepturile rezervate</p>
+    </div>
+</footer>
+
+<style>
+    .footer {
+    background-color: #121212; /* Păstrează culoarea de fundal dorită */
+    color: #fff;
+    padding: 50px 10%;
+    font-family: Arial, sans-serif;
+    margin-top: 50px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5); /* Adaugă umbra */
+}
+
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 40px;
+    }
+
+    .footer-column {
+        max-width: 45%;
+    }
+
+    .footer-logo {
+        max-width: 250px; /* Sigla mai mare pentru evidențiere */
+        margin-bottom: 20px;
+    }
+
+    .motto {
+        font-size: 28px; /* Motto mai mare */
+        font-weight: bold; /* Litere de tipar */
+        color: #f05454;
+        text-transform: uppercase; /* Litere mari */
+        margin-top: 10px;
+    }
+
+    .contact-column {
+        max-width: 40%;
+        transform: translateX(-15%); /* Coloana mai centrată */
+    }
+
+    .footer-column h4 {
+        color: #f05454;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .footer-column p {
+        font-size: 16px;
+        line-height: 1.8;
+        margin: 10px 0;
+    }
+
+    .footer-column a {
+        color: #f05454;
+        text-decoration: none;
+    }
+
+    .footer-column a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        font-size: 16px;
+        border-top: 1px solid #333;
+        padding-top: 20px;
+        margin-top: 20px;
+    }
+</style>
+
+
 {% endblock %}
-
