@@ -382,6 +382,9 @@ h1 {
   
 }
 
+.categoriileNoastre{
+    color:#ffffff;
+}
 
 
 /*Pagian pt login/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -829,3 +832,85 @@ loginBody{
   
 }
 
+/*slider///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*/
+  .gallery {
+    --s: 150px; /* the image size */
+    margin-left: 10%;
+    display: grid;
+    transform-style: preserve-3d;
+    animation: r 15s linear infinite;
+    position: relative;
+  }
+  @keyframes r {
+    0% {transform: perspective(450px) rotateX(-100deg) rotate(0deg)}
+    to {transform: perspective(450px) rotateX(-100deg) rotate(-360deg)}
+  }
+  .gallery > img {
+    grid-area: 1/1;
+    width: var(--s);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    transform: rotate(var(--_a)) translateY(120%) rotateX(90deg);
+  }
+  .gallery > img:nth-child(1) {--_a: 0deg}
+  .gallery > img:nth-child(2) {--_a: 60deg}
+  .gallery > img:nth-child(3) {--_a: 120deg}
+  .gallery > img:nth-child(4) {--_a: 180deg}
+  .gallery > img:nth-child(5) {--_a: 240deg}
+  .gallery > img:nth-child(6) {--_a: 300deg}
+  
+  .gallery-container {
+    margin-left: -3%; /* Poziționează containerul mai aproape de marginea stângă */
+    margin-top: -7%; /* Poziționează containerul mai jos */
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: auto 1fr; /* Creează două coloane: una pentru animație, alta pentru titlu, motto și contact */
+    align-items: center; /* Asigură alinierea pe verticală */
+    gap: 20px; /* Adaugă spațiu între animație și coloana cu text */
+    padding-left: 20%; /* Spațiu suplimentar pe stânga pentru animație */
+    overflow: visible; /* Permite vizibilitatea completă a animației */
+  }
+  
+  .title-motto-container {
+    display: flex;
+    flex-direction: column; /* Aranjează titlul, motto-ul și contactul pe verticală */
+    align-items: center; /* Centrează conținutul pe orizontală */
+    gap: 15px; /* Spațiu între elemente */
+  }
+  
+  .titluRadiali {
+    font-size: 120px;
+    color: #ffffff;
+    text-align: center; /* Asigură centrare a textului */
+    margin: 0; /* Elimină alte margini */
+   
+  }
+  
+  .mottoRadiali {
+    font-size: 35px;
+    font-family: 'Dancing Script';
+    color: #ffffff;
+    text-align: center; /* Centrează textul */
+    margin: 0; /* Elimină marginea implicită */
+    margin-bottom: 3%;
+    max-width: 80%; /* Limitează lățimea pentru a împărți textul pe rânduri */
+    line-height: 1.2; /* Spațiu între rânduri */
+    padding-left: 15%; /* Mută textul mai la dreapta */
+  }
+  
+  
+  /* .contact {
+    font-size: 30px;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    text-align: center; 
+    justify-self: end; 
+    align-self: end;
+    margin-right: 10%;
+    margin-bottom: 5%;
+  } */
+  
+
+  
