@@ -37,9 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',#displaing one time notifs to the user
     'django.contrib.staticfiles',#img/css
     'django.contrib.sessions',
-    'productManagement.apps.ProductmanagementConfig',
+    #'productManagement.apps.ProductmanagementConfig',
     'Home',
     'loginManagement',
+    'productManagement'
+    
 ]
 
 MIDDLEWARE = [

@@ -37,3 +37,33 @@ def index(request):
 #     if not product:
 #         return render(request, '404.html', status=404)
 #     return render(request, 'product_page.html', {'product': product})
+
+
+# def category_products(request, category):
+#     # Filter products by category (case-sensitive)
+#     products = Product.objects.filter(category__iexact=category.strip())
+    
+#     # Format the category name (for example, "generatoare" => "Generatoare")
+#     category_name = category.replace('-', ' ').title()
+    
+#     # Render the filtered products in the template
+#     return render(request, 'index.html', {'products': products, 'category': category_name})
+
+
+def category_products(request, category):
+    # Adăugăm debugging pentru a verifica ce primim în URL
+    print(f"Categoria primită din URL: {category}")
+    
+    # Filtrăm produsele după categorie, liniuțele vor rămâne așa cum sunt în baza de date
+    products = Product.objects.filter(category__iexact=category.strip())  # Filtrăm după categoria din URL
+    
+    # Verificăm dacă există produse
+    if not products:
+        print("Nu sunt produse pentru această categorie.")
+    
+    # Formatează numele categoriei pentru a-l afișa corect pe pagină:
+    # Înlocuim liniuțele cu spațiu și facem prima literă a fiecărui cuvânt mare
+    category_name = category.replace('-', ' ').title()  # Înlocuim liniuțele cu spațiu și punem prima literă mare
+    
+    # Trimitem produsele și categoria la template
+    return render(request, 'index.html', {'products': products, 'category': category_name})
