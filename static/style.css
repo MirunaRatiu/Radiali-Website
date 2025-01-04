@@ -178,7 +178,14 @@ body {
   
 }
 
+.categorie-link{
+  color:#ffcc00;
+}
 
+
+a.categorie-link{
+  color:#ffcc00;
+}
 
 
 
@@ -211,7 +218,7 @@ h1 {
   padding: 30px; /* Spațiu interior pentru a face elementul mai mic */
   text-align: center;
   border-radius: 8px; /* Margini rotunjite */
-  background-color: rgba(255, 255, 255, 0.2); /* Fundal alb cu transparență */
+  background-color: rgba(112, 109, 109, 0.4); /* Fundal alb cu transparență */
   
   transition: transform 0.2s ease, box-shadow 0.2s ease; /* Tranziție pentru efectul de hover */
   width: 100%; /* Lățimea elementului 100% din containerul său */
@@ -260,6 +267,12 @@ h1 {
 }
 
 
+.categorie-titlu {
+  color: white; /* Schimbă culoarea textului în alb */
+  margin: 10px 0;
+  font-size: 1.4rem;
+  text-align: center;
+}
 
 
 .grid-item-name {
@@ -268,7 +281,7 @@ h1 {
   left: 0; /* Banda începe de la marginea stângă */
   width: 70%; /* Banda ocupă 70% din lățimea părintelui */
   font-size: 24px; /* Text puțin mai mare pentru lizibilitate */
-  color: #fff;
+  color: #ffffff;
   font-family: "Conv_rawline-500";
   padding: 8px 10px; /* Spațiu interior pentru o bandă mai groasă */
   text-align: center; /* Text centrat în banda neagră */
@@ -372,22 +385,31 @@ h1 {
 
 
 /*Pagian pt login/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-.loginContainer{
-  width:750px;
-  position: relative;
+.loginContainer {
+  z-index: 2;
+  width: 750px;
   height: 450px;
   border-radius: 10px;
-  /* border: 2px solid rgb(255, 238, 0); */
-  margin:0;
-  padding: 0;
-  overflow:hidden;
+  position: fixed; /* Fixează poziția relativ la fereastră */
+  top: 50%; /* Poziționează la mijloc pe verticală */
+  left: 50%; /* Poziționează la mijloc pe orizontală */
+  transform: translate(-50%, -50%); /* Mută punctul de referință în centru */
+  overflow: hidden;
   box-sizing: border-box;
   background-color: #110450;
-  font-family: 'poppins', sans-serif 
-  
+  font-family: 'Poppins', sans-serif;
   
 }
 
+.loginContainer.act {
+  visibility: visible; /* Devine vizibil */
+  opacity: 1; /* Tranparență completă */
+}
+
+.loginContainer.rem{
+  visibility: hidden; /* Inițial ascuns */
+  opacity: 0; /* Tranziție de opacitate */
+}
 
 loginBody{
   display: flex;
@@ -461,6 +483,7 @@ loginBody{
   font-size: 32px;
   text-align: center;
   left:10px;
+  color: #ffec00;
   padding: 0 40px;
 }
 
@@ -586,6 +609,10 @@ loginBody{
   margin: 20px 0 10px;
 }
 
+.registerlinkChangeSide p{
+  color: #ffec00;
+}
+
 .registerlinkChangeSide a{
   text-decoration: none;
   color: #ffffff;
@@ -608,15 +635,16 @@ loginBody{
 }
 
 .loginContainer .closeBtn {
-  position: absolute; /* Ensures it's positioned relative to the container */
-  top: 10px; /* Adjusts vertical position */
-  right: 10px; /* Adjusts horizontal position */
+  position: absolute; 
+  top: 10px;
+  right: 10px;
   cursor: pointer;
   font-size: 35px;
   font-weight: 600;
   color: #ffffff;
-  z-index: 1;
+  z-index: 3; /* Mai mare decât alți descendenți ai .loginContainer */
 }
+
 
 .loginContainer .closeBtn:hover {
   color: rgb(255,0,0);

@@ -2,6 +2,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.loginContainer');
     const LoginLink = document.querySelector('.SignInLink');
     const RegisterLink = document.querySelector('.SignUpLink');
+    const inchidPop = document.querySelector('.closeBtn');
+    const showPop = document.querySelector('.reg');
+
+    //container.classList.add('rem');
+
+    if(showPop){
+        showPop.addEventListener('click', () => {
+            container.classList.add('act');
+            container.classList.remove('rem');
+        });
+    }
+
+    if(inchidPop){
+        inchidPop.addEventListener('click', () => {
+            container.classList.add('rem');
+            container.classList.remove('act');
+        });
+    }
 
     if (RegisterLink) {
         RegisterLink.addEventListener('click', () => {
@@ -22,20 +40,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // openModal.addEventListener('click', () => {
 //     modal.showModal();
-// })
-
-
-// Select all hyperlinks with id="reg"
-//Add click event listeners to all #reg links
-document.querySelectorAll("#reg").forEach(function (link) {
-    link.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent hyperlink navigation
-        document.querySelector(".loginContainer").classList.add("act");
-    });
-});
-
-// // Close modal when close button is clicked
-document.querySelector(".loginContainer .closeBtn").addEventListener("click", function () {
-    document.querySelector(".loginContainer").classList.remove("act");
-});
+// }
 

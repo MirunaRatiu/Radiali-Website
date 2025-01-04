@@ -7,7 +7,7 @@
         <nav class="navbar">
             <a href="/Home/home" class="acasa">Home</a>
             <a href="" id="reg">Inregistreaza-te</a>
-            <a href="/loginManagement/login" class="log">Intra in cont</a>
+            <a href="" class="reg">Intra in cont</a>
             <a href="#despre-noi">Despre</a>
             <a href="/productManagement/products">Produse</a>
             <a href="#">Dealeri</a>
@@ -16,6 +16,71 @@
     </div>
 </header>
 
+<br><br>
+    <div class="loginContainer" id="log-reg">
+        <i class='bx bx-x closeBtn' id="clos"></i>
+        <div class="curvedShape"></div>
+        <div class="curvedShape2"></div>
+        <div class="form-box form-box-Login">
+            <h2 class="h2Login animation" style="--D: 0; --S:21">Login</h2>
+            <form action="#">
+                <div class="input-box-Login animation" style="--D: 1; --S:22">
+                    <input id="username"class="inputLogin" type="text" required>
+                    <label class="loginLabel"for="">Username</label>
+                    <i class="bx bxs-user passUsericon"></i>
+                </div>
+                <div class="input-box-Login animation" style="--D: 2; --S:23">
+                    <input id="password" class="inputLogin" type="text" required>
+                    <label class="loginLabel"for="">Password</label>
+                    <i class="bx bxs-lock-alt passUsericon"></i>
+                    <p><a  href="#" class="forgot" style="--D: 3; --S:24">Forgot Password?</a></p>
+                </div>
+                
+                <div class="input-box-Login animation" style="--D: 4; --S:25">
+                    <button class="submitButton" type="submit">Login</button>
+                </div>
+                <div class="registerlinkChangeSide animation" style="--D: 5; --S:26">
+                    <p>Don't have an account?<a href="#" class="SignUpLink">  Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+         <div class="LoginPageInfoContent">
+            <img class="logoFirstPage animation" style="--D: 0; --S:20" src="https://seniledecauciuc.ro/assets/images/radiali-logo.png">
+            <p class="MottoFirstPage animation" style="--D: 1; --S:21">  Piese de schimb care fac utilajele sa radieze de fericire</p>
+         </div>
+         <div class="form-box form-box-Register">
+            <h2 class="h2Login animation" style="--li: 17; --S:0">Register</h2>
+            <form action="#">
+                <div class="input-box-Login animation" style="--li: 18; --S:1">
+                    <input id="username"class="inputLogin" type="text" required>
+                    <label class="loginLabel"for="">Username</label>
+                    <i class="bx bxs-user passUsericon"></i>
+                </div>
+                <div class="input-box-Login animation" style="--li: 19; --S:2">
+                    <input id="password" class="inputLogin" type="text" required>
+                    <label class="loginLabel"for="">Password</label>
+                    <i class="bx bxs-lock-alt passUsericon"></i>
+                </div>
+                <div class="input-box-Login animation" style="--li: 20; --S:3">
+                    <input id="confirmpassword"class="inputLogin" type="text" required>
+                    <label class="loginLabel"for="">Confirm Password</label>
+                    <i class="bx bxs-check-shield passUsericon"></i>
+                </div>
+                <div class="input-box-Login animation" style="--li: 21; --S:4">
+                    <button class="submitButton" type="submit">Register</button>
+                </div>
+                <div class="registerlinkChangeSide animation" style="--li: 22; --S:5">
+                    <p>Don't have an account?<a href="#" class="SignInLink">  Sign In</a></p>
+                </div>
+            </form>
+         </div>
+         <div class="RegisterPageInfoContent">
+            <img class="logoFirstPage animation" style="--li: 17; --S:0" src="https://seniledecauciuc.ro/assets/images/radiali-logo.png">
+            <p class="MottoFirstPage animation" style="--li: 18; --S:1">  Piese de schimb care fac utilajele sa radieze de fericire</p>
+         </div>
+    </div>     
+    <script src="index.js"></script>
+
 <div class="containerHome">
     <h1>Produsele noastre</h1>
     <!-- Grid cu denumiri generate din categorii -->
@@ -23,7 +88,7 @@
         {% for categorie in categorii %}
             <div class="grid-item">
                 <img src="{{ categorie.poza }}" alt="{{ categorie.denumire }}" class="categorie-img">
-                <h3>{{ categorie.denumire }}</h3>
+                <h3 class="categorie-titlu">{{ categorie.denumire }}</h3>
                 <a href="{{ categorie.linkPaginaProduse }}" class="categorie-link">Vezi Produse</a>
             </div>
         {% endfor %}
@@ -53,7 +118,7 @@
 
 <style>
     .footer {
-    background-color: #121212; /* Păstrează culoarea de fundal dorită */
+    background: #110450;
     color: #fff;
     padding: 50px 10%;
     font-family: Arial, sans-serif;
@@ -81,7 +146,7 @@
     .motto {
         font-size: 28px; /* Motto mai mare */
         font-weight: bold; /* Litere de tipar */
-        color: #f05454;
+        color: rgb(255, 255, 255);
         text-transform: uppercase; /* Litere mari */
         margin-top: 10px;
     }
@@ -92,7 +157,7 @@
     }
 
     .footer-column h4 {
-        color: #f05454;
+        color: rgb(255,238,0);
         font-size: 20px;
         margin-bottom: 10px;
     }
@@ -104,7 +169,7 @@
     }
 
     .footer-column a {
-        color: #f05454;
+        color: rgb(255,238,0);;
         text-decoration: none;
     }
 
@@ -120,6 +185,7 @@
         margin-top: 20px;
     }
 </style>
+
 
 
 {% endblock %}
