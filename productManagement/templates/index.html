@@ -17,30 +17,48 @@
         </div>
     </header>
 
-    <br></br><br></br>
-    
+    <br><br>
+
     <!-- Category Name Header -->
     <h1 class="text-center my-4">{{category}} - Produse</h1>
-
-<div class="container">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-        {% if products %}
-            {% for product in products %}
-                <div class="col">
-                    <div class="card">
-                        <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}">
-                        <div class="card-body d-flex flex-column text-center">
-                            <h5 class="card-title">{{ product.name }}</h5>
-                            <div class="mt-auto">
-                                <a href="#" class="btn_whatsapp">Intreaba pretul</a>
+    <br>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            {% if products %}
+                {% for product in products %}
+                    <div class="col">
+                        <div class="card">
+                            <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <div class="mt-auto">
+                                    <a href="#" class="btn_whatsapp">Prețul</a>
+                                    <!-- Butonul pentru vizualizarea imaginii -->
+                                    <button class="btn_whatsapp btn-primary" data-bs-toggle="modal" data-bs-target="#imageModal{{ product.id }}">Detalii</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div> 
-            {% endfor %}
-        {% else %}
-            <p class="text-center">Nu sunt produse în această categorie.</p>
-        {% endif %}
+
+                    <!-- Modalul care va afișa imaginea produsului pe tot ecranul -->
+                    <div class="modal fade" id="imageModal{{ product.id }}" tabindex="-1" aria-labelledby="imageModalLabel{{ product.id }}" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <!-- Butonul X pentru închidere -->
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="{{ product.image_url }}" class="img-fluid" alt="{{ product.name }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="text-center">Nu sunt produse în această categorie.</p>
+            {% endif %}
+        </div>
     </div>
-</div>
-{%endblock%}
+
+{% endblock %}

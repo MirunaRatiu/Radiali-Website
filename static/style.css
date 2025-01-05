@@ -912,5 +912,27 @@ loginBody{
     margin-bottom: 5%;
   } */
   
-
+/*popup produse//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+  /* Stiluri pentru a centra modalul pe ecran */
+  .modal-dialog {
+    position: fixed;
+    top: 1%; /* Poziționează puțin mai sus față de centrul vertical */
+    left: 30%; /* Poziționează pe mijlocul orizontal */
+    transform: translateX(-50%); /* Asigură poziționarea corectă pe mijloc */
+    width: 90%; /* Reduce lățimea la 50% din ecran */
+    max-width: 600px; /* Lățimea maximă a modalului */
+  }
   
+
+
+  .modal-dialog .modal-content {
+    max-height: 95vh; /* Limitează înălțimea la 80% din înălțimea ecranului */
+    overflow-y: auto; /* Permite scroll vertical dacă conținutul este mai mare */
+  }
+  
+
+
+.card-body .btn {
+  display: inline-block;  /* Butonul va fi pe aceeași linie */
+  margin-right: 30px;      /* Adaugă 2px de spațiu între butoane */
+}
