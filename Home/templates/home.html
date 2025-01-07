@@ -5,13 +5,13 @@
     <div class="header_content">
         <img src="https://seniledecauciuc.ro/assets/images/radiali-logo.png" class="logo">
         <nav class="navbar">
-            <a href="/Home/home" class="acasa">Home</a>
+            <a href="/Home/home">Home</a>
             <a href="" id="reg">Inregistreaza-te</a>
             <a href="" class="reg">Intra in cont</a>
             <a href="#despre-noi">Despre</a>
             <a href="/productManagement/products">Produse</a>
             <a href="#">Dealeri</a>
-            <a href="#">Contact</a>
+            <a href="#footer">Contact</a>
         </nav>
     </div>
 </header>
@@ -26,13 +26,13 @@
         <img src="https://picsum.photos/id/20/300/300" alt="a laptop and many books around it">
     </div>
     <div class="motto-titlu-container">
-    <div class="titluRadiali">Radiali</div>  
+    <div class="titluRadiali">Radiali</div>
     <div class="mottoRadiali">Piese de schimb care fac utilajele sa radieze de fericire</div>
-    
+
 </div>
-    
+
   </div>
-  
+
 
 <br><br>
     <div class="loginContainer" id="log-reg">
@@ -41,7 +41,8 @@
         <div class="curvedShape2"></div>
         <div class="form-box form-box-Login">
             <h2 class="h2Login animation" style="--D: 0; --S:21">Login</h2>
-            <form action="#">
+            <form action="#" method="POST">
+                {% csrf_token %}
                 <div class="input-box-Login animation" style="--D: 1; --S:22">
                     <input id="username"class="inputLogin" type="text" required>
                     <label class="loginLabel"for="">Username</label>
@@ -53,9 +54,9 @@
                     <i class="bx bxs-lock-alt passUsericon"></i>
                     <p><a  href="#" class="forgot" style="--D: 3; --S:24">Forgot Password?</a></p>
                 </div>
-                
+
                 <div class="input-box-Login animation" style="--D: 4; --S:25">
-                    <button class="submitButton" type="submit">Login</button>
+                    <button class="submitButton" id="submitLogin" type="submit">Login</button>
                 </div>
                 <div class="registerlinkChangeSide animation" style="--D: 5; --S:26">
                     <p>Don't have an account?<a href="#" class="SignUpLink">  Sign Up</a></p>
@@ -68,24 +69,25 @@
          </div>
          <div class="form-box form-box-Register">
             <h2 class="h2Login animation" style="--li: 17; --S:0">Register</h2>
-            <form action="#">
+            <form id="registerForm">
+                {% csrf_token %}
                 <div class="input-box-Login animation" style="--li: 18; --S:1">
-                    <input id="username"class="inputLogin" type="text" required>
+                    <input id="username"name="username"class="inputLogin" type="text" required>
                     <label class="loginLabel"for="">Username</label>
                     <i class="bx bxs-user passUsericon"></i>
                 </div>
                 <div class="input-box-Login animation" style="--li: 19; --S:2">
-                    <input id="password" class="inputLogin" type="text" required>
+                    <input id="password" name="password" class="inputLogin" type="text" required>
                     <label class="loginLabel"for="">Password</label>
                     <i class="bx bxs-lock-alt passUsericon"></i>
                 </div>
                 <div class="input-box-Login animation" style="--li: 20; --S:3">
-                    <input id="confirmpassword"class="inputLogin" type="text" required>
+                    <input id="confirmpassword" name="confirmpassword" class="inputLogin" type="text" required>
                     <label class="loginLabel"for="">Confirm Password</label>
                     <i class="bx bxs-check-shield passUsericon"></i>
                 </div>
                 <div class="input-box-Login animation" style="--li: 21; --S:4">
-                    <button class="submitButton" type="submit">Register</button>
+                    <button class="submitButton" type="button" id="submitRegister">Register</button>
                 </div>
                 <div class="registerlinkChangeSide animation" style="--li: 22; --S:5">
                     <p>Don't have an account?<a href="#" class="SignInLink">  Sign In</a></p>
@@ -96,7 +98,7 @@
             <img class="logoFirstPage animation" style="--li: 17; --S:0" src="https://seniledecauciuc.ro/assets/images/radiali-logo.png">
             <p class="MottoFirstPage animation" style="--li: 18; --S:1">  Piese de schimb care fac utilajele sa radieze de fericire</p>
          </div>
-    </div>     
+    </div>
     <script src="index.js"></script>
 
 <div class="containerHome">
@@ -113,7 +115,7 @@
     </div>
 </div>
 
-<footer class="footer">
+<footer class="footer" id="footer">
     <div class="footer-content">
         <!-- Logo și motto -->
         <div class="footer-column">

@@ -84,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',  # Driverul MySQL
         'NAME': 'radialidb',        # Numele bazei de date
         'USER': 'root',          # Numele de utilizator MySQL
-        'PASSWORD': 'Mysql1234',            # Parola pentru utilizatorul MySQL
+        'PASSWORD': '!Mara2003!',            # Parola pentru utilizatorul MySQL
         'HOST': '127.0.0.1',                   # Adresa hostului, pentru localhost este 'localhost'
         'PORT': '3306',                        # Portul pentru MySQL (de obicei 3306)
     }
@@ -126,10 +126,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static')
-]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
 
 
 
