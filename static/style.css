@@ -137,7 +137,7 @@ body{
 }
 
 
-.navbar a {
+/* .navbar a {
   position:relative;
   font-size: 18px;
   color: rgb(255, 238, 0);
@@ -162,6 +162,39 @@ body{
 .navbar a:hover::before{
   width: 100%;
 
+} */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Elemente aliniate la stânga */
+  gap: 20px; /* Spațiere uniformă între elemente */
+}
+
+.navbar a {
+  position: relative;
+  font-size: 18px;
+  color: rgb(255, 238, 0);
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 40px;
+  background-color: #110450;
+  font-family: "Arial", sans-serif;
+}
+
+.navbar a::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  transition: 0.3s;
+}
+
+.navbar a:hover::before {
+  width: 100%;
 }
 
 .logo {
@@ -325,6 +358,17 @@ h1 {
   transform: scale(1.20); /* Scale image slightly larger on hover */
 }
 
+.product-checkbox {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.select-product {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
 
 
 .overlay {
@@ -389,6 +433,7 @@ h1 {
 
 /*Pagian pt login/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 .loginContainer {
+  display: none;
   z-index: 2;
   width: 750px;
   height: 450px;
@@ -405,12 +450,12 @@ h1 {
 }
 
 .loginContainer.act {
-  visibility: visible; /* Devine vizibil */
+  display: block; /* Devine vizibil */
   opacity: 1; /* Tranparență completă */
 }
 
 .loginContainer.rem{
-  visibility: hidden; /* Inițial ascuns */
+  display: none; /* Inițial ascuns */
   opacity: 0; /* Tranziție de opacitate */
 }
 
@@ -831,7 +876,64 @@ loginBody{
   transform: translateY(-410px) scale(0.5);
   
 }
+/* 
+/* .cart-icon {
+  position: relative;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
 
+.cart-icon .cart-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+} 
+
+.logout {
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 20px;
+} */
+
+
+
+.cart-icon {
+  position: relative;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 20px; /* Spațiere între coș și link-uri */
+}
+
+.cart-icon .cart-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+.logout {
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.logout:hover {
+  text-decoration: underline;
+}
 /*slider///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 */
   .gallery {

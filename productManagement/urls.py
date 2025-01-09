@@ -12,4 +12,5 @@ from . import views
 urlpatterns = [
     # Add a dynamic URL for the category page
     path('produse/<str:category>/', views.category_products, name='category_products'),
+   # path('cart/', views.cart_view, name='cart'),  # URL pentru coșul de cumpărături,
 ]

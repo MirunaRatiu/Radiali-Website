@@ -22,5 +22,6 @@ urlpatterns = [
     path('Radiali/', include('Radiali.urls')),# all the apps which starts with Radiali/ should be handled by the app inside include
     path('productManagement/', include('productManagement.urls')),
     path('Home/', include('Home.urls')),
-    path('loginManagement/',include('loginManagement.urls'))
+    path('loginManagement/',include('loginManagement.urls')),
+    path('shopping/', include(('shopping.urls', 'shopping'), namespace='shopping')),
 ]

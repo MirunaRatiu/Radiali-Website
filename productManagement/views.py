@@ -67,3 +67,9 @@ def category_products(request, category):
     
     # Trimitem produsele și categoria la template
     return render(request, 'index.html', {'products': products, 'category': category_name})
+
+
+# def cart_view(request):
+#     selected_products_ids = request.GET.getlist('selectedProducts')
+#     products = Product.objects.filter(id__in=selected_products_ids)
+#     return render(request, 'cart.html', {'products': products})

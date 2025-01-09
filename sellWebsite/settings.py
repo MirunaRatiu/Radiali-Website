@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000']
 
 # Application definition
 
@@ -37,10 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',#displaing one time notifs to the user
     'django.contrib.staticfiles',#img/css
     'django.contrib.sessions',
-    #'productManagement.apps.ProductmanagementConfig',
+    'productManagement.apps.ProductmanagementConfig',
     'Home',
     'loginManagement',
-    'productManagement'
+    'shopping',
+    #'productManagement'
     
 ]
 
@@ -137,3 +139,23 @@ STATICFILES_DIRS=[
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Configurare pentru template-uri
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Adaugă calea către `templates`
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]

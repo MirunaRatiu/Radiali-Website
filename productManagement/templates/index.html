@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
-{% include 'loginManagement/templates/login.html' %}
+<!-- {% include 'loginManagement/templates/login.html' %} -->
+
 
 {% block content %}
-    <header class="header">
+    <!-- <header class="header">
         <div class="header_content">
             <img src="https://seniledecauciuc.ro/assets/images/radiali-logo.png" class="logo">
             <nav class="navbar">
@@ -15,7 +16,10 @@
                 <a href="#">Contact</a>
             </nav>
         </div>
-    </header>
+    </header> -->
+    {% include 'navbar.html' %} 
+    {% include 'login.html' %}
+   
 
     <br><br>
 
@@ -31,8 +35,16 @@
                             <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}">
                             <div class="card-body d-flex flex-column text-center">
                                 <h5 class="card-title">{{ product.name }}</h5>
+                                <button 
+                                class="btn btn-primary add-to-cart" 
+                                data-product-id="{{ product.id }}">
+                                Adaugă în coș
+                            </button>
+                            
+                            <!-- Debugging: afișează ID-ul produsului -->
+                            <p>ID produs: {{ product.id }}</p>
                                 <div class="mt-auto">
-                                    <a href="#" class="btn_whatsapp">Prețul</a>
+                                    <a href="http://Wa.me/+40767594267" class="btn_whatsapp">Prețul</a>
                                     <!-- Butonul pentru vizualizarea imaginii -->
                                     <button class="btn_whatsapp btn-primary" data-bs-toggle="modal" data-bs-target="#imageModal{{ product.id }}">Detalii</button>
                                 </div>
@@ -60,5 +72,6 @@
             {% endif %}
         </div>
     </div>
-
+    
 {% endblock %}
+

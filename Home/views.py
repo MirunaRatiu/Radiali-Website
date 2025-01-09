@@ -1,7 +1,63 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.http import JsonResponse
+from django.middleware.csrf import get_token
+from django.views.decorators.csrf import csrf_exempt
+import json
 
-# def home(request):
-#     return render(request, 'home.html')
+@csrf_exempt
+def login_view(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            username = data.get('username')
+            password = data.get('password')
+
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return JsonResponse({"message": "Login successful!"}, status=200)
+            else:
+                return JsonResponse({"error": "Invalid username or password!"}, status=400)
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=500)
+
+    return JsonResponse({"error": "Invalid request method!"}, status=405)
+
+@csrf_exempt
+def register_view(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            username = data.get('username')
+            password = data.get('password')
+            confirmpassword = data.get('confirmpassword')  # Obține confirmarea parolei
+
+            print("Password:", password)
+            print("Confirm Password:", confirmpassword)
+            # Verifică dacă parolele coincid
+            if password != confirmpassword:
+                return JsonResponse({"error": "Passwords do not match!"}, status=400)
+
+            # Verifică dacă numele de utilizator există deja
+            if User.objects.filter(username=username).exists():
+                return JsonResponse({"error": "Username already exists!"}, status=400)
+
+            # Creează utilizatorul
+            User.objects.create_user(username=username, password=password)
+            return JsonResponse({"message": "Registration successful!"}, status=201)
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=500)
+
+    return JsonResponse({"error": "Invalid request method!"}, status=405)
+
+@csrf_exempt
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+        return JsonResponse({"message": "Logged out successfully!"}, status=200)
+    return JsonResponse({"error": "Invalid request method!"}, status=405)
 
 def home(request):
     categorii = [
