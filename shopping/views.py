@@ -17,15 +17,35 @@ from django.contrib import messages
 from django.db.models import Sum
 from .models import Cart
 from productManagement.models import Product
+from django.core.mail import send_mail
 
-# def cart_view(request):
-# #     # Obține lista de produse din sesiune
-#     cart = request.session.get('cart', [])
-#     print("Cart content in session:", cart)  # Log pentru debug
+@login_required
+def process_order(request):
+    cart_items = Cart.objects.filter(user=request.user)
+    
+    # Create email content
+    order_details = "Your Order Details:\n\n"
+    for item in cart_items:
+        order_details += f"Product: {item.product.name}\n"
+        order_details += f"Quantity: {item.quantity}\n"
+        order_details += "-------------------------\n"
+    
+    # Send email
+    send_mail(
+        'Your Order Confirmation',
+        order_details,
+        'radu.sburlea33p2@gmail.com',
+        ['mirunaratiu03@gmail.com', 'radu.sburlea33p2@gmail.com'],
+        fail_silently=False,
+    )
+    
+    # Clear cart after order
+    cart_items.delete()
+    
+    messages.success(request, "Order processed! Check your email for confirmation.")
+    return redirect('shopping:cart_detail')
 
-#     # Selectează produsele din baza de date care există în coș
-#     products = Product.objects.filter(name__in=cart)
-#     return render(request, 'cart.html', {'products': products})
+
 
 @login_required
 def add_to_cart(request, product_id):

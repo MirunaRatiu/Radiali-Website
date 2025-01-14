@@ -62,12 +62,36 @@
 // }
 
 document.addEventListener('DOMContentLoaded', () => {
+    const cartIcon = document.querySelector('.cart-icon');
+    // Hide cart icon by default
+    if (cartIcon) {
+        cartIcon.style.display = 'none';
+    }
+
+    // Show cart icon only if user is logged in
+    const username = localStorage.getItem('username');
+    if (username) {
+        cartIcon.style.display = 'block';
+    }
+
+    // if (addItemToCart) {
+    //     addItemToCart.style.display = 'none';
+    // }
+
+    // // Show cart icon only if user is logged in
+    // if (username) {
+    //     addItemToCart.style.display = 'block';
+    // }
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.querySelector('#loginForm'); // Selector corect pentru formular
     const loginContainer = document.querySelector('.loginContainer'); // Popup-ul de login
     const cartIcon = document.querySelector('.cart-icon'); // Iconița coșului de cumpărături
     const regLink = document.querySelector('.reg'); // Link-ul "Intra in cont"
     const logoutLink = document.querySelector('.logout'); // Logout link
-
+   
     // Verifică dacă utilizatorul este logat
     const username = localStorage.getItem('username');
     if (username) {
