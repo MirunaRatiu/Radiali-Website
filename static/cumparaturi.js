@@ -2,10 +2,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
     
     addToCartButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent any default button behavior
+        button.addEventListener('click', function() {
             const productName = this.dataset.productName;
-            console.log('Adding product to cart:', productName);
+            console.log('Button clicked for product:', productName); // Debug log
+            
+            // Show immediate feedback
+            alert('Clicked! Adding product to cart...');
             
             fetch('/shopping/sync-cart/', {
                 method: 'POST',
@@ -21,14 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert(`Product "${productName}" added to cart successfully!`);
-                    // Update stock display if you have a stock element
-                    const stockElement = document.querySelector(`[data-stock="${productName}"]`);
-                    if (stockElement) {
-                        stockElement.textContent = data.new_stock;
-                    }
+                    alert('Product successfully added to cart!');
                 } else {
-                    alert(data.error || 'Failed to add product to cart');
+                    alert('Could not add product to cart: ' + data.error);
                 }
             })
             .catch(error => {
@@ -38,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
 function getCsrfToken() {
     return document.querySelector('[name=csrfmiddlewaretoken]').value;
 }
+<button class="add-to-cart-btn" data-product-name="{{ product.name }}">Add to Cart</button>

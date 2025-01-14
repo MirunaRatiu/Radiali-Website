@@ -1,26 +1,46 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
 {% block content %}
 {% include 'navbar.html' %}
 
 <h1 class="text-center my-4">Coș de cumpărături</h1>
 
 <div class="container">
-    <pre>{{ products }}</pre>  <!-- Debugging -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if cart_items %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Produs</th>
+                    <th>Cantitate</th>
+                    <th>Acțiuni</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                    <tr>
+                        <td>{{ item.product.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>
+                            <a href="{% url 'shopping:remove_from_cart' item.id %}">Remove</a>
+                            <a href="{% url 'shopping:decrease_quantity' item.id %}" class="btn btn-sm btn-warning">-</a>
+                            <a href="{% url 'shopping:increase_quantity' item.id %}" class="btn btn-sm btn-success">+</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-    {% if products %}
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-            {% for product in products %}
-                <div class="col">
-                    <div class="card">
-                        <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">{{ product.name }}</h5>
-                            <p class="card-text">Preț: {{ product.price }}</p>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+        <div class="text-center mt-4">
+            <a href="" class="btn btn-primary btn-lg">Procesare Comandă</a>
         </div>
+        
     {% else %}
         <p class="text-center">Coșul este gol.</p>
     {% endif %}

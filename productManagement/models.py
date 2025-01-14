@@ -7,6 +7,7 @@ class Product(models.Model):
     stock = models.IntegerField()
     image_url = models.URLField(max_length=2083)
     category =models.CharField(max_length=255)
+    tehnic_file = models.CharField(max_length=255)
     # category = models.ForeignKey(
     #     Category, related_name="products", on_delete=models.CASCADE
     # )
@@ -15,4 +16,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_tehnic_file_path(self):
+        return f"/static/search/{self.tehnic_file}"
 

@@ -1038,3 +1038,26 @@ loginBody{
   display: inline-block;  /* Butonul va fi pe aceeași linie */
   margin-right: 30px;      /* Adaugă 2px de spațiu între butoane */
 }
+
+.suggestions-list {
+  position: absolute;
+  background: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  z-index: 1000;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.suggestions-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestions-list li:hover {
+  background: #f0f0f0;
+}
