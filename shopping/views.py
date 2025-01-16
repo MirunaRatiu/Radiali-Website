@@ -35,7 +35,7 @@ def process_order(request):
         'Your Order Confirmation',
         order_details,
         'radu.sburlea33p2@gmail.com',
-        ['mirunaratiu03@gmail.com', 'radu.sburlea33p2@gmail.com'],
+        [request.user.username],
         fail_silently=False,
     )
     
